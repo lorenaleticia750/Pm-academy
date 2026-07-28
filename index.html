@@ -1,140 +1,255 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PM Academy</title>
+<title>PM Academy - Letícia Lorena</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f1f5f9;
-    color: #222;
+
+*{
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
-header {
-    background: #1d4ed8;
-    color: white;
-    padding: 25px;
-    text-align: center;
+body{
+margin:0;
+background:#f5f7fb;
+color:#222;
 }
 
-nav {
-    background: #2563eb;
-    padding: 10px;
-    text-align: center;
+header{
+background:linear-gradient(135deg,#061a40,#0b3d91);
+color:white;
+padding:25px;
+text-align:center;
 }
 
-nav button {
-    margin: 5px;
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    color: white;
-    background: #1e40af;
-    cursor: pointer;
+header h1{
+margin:0;
 }
 
-section {
-    display: none;
-    padding: 25px;
-    text-align: center;
+nav{
+background:#d4af37;
+padding:10px;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
 }
 
-section.active {
-    display: block;
+nav button{
+margin:5px;
+padding:12px;
+border:0;
+border-radius:10px;
+background:#061a40;
+color:white;
+cursor:pointer;
 }
 
-.card {
-    background: white;
-    max-width: 500px;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px #ccc;
+.container{
+padding:15px;
 }
 
-button {
-    padding: 12px;
-    border: none;
-    border-radius: 10px;
-    background: #2563eb;
-    color: white;
-    cursor: pointer;
-    margin: 5px;
+.card{
+background:white;
+padding:20px;
+margin:15px 0;
+border-radius:18px;
+box-shadow:0 4px 12px #ccc;
 }
 
-button:hover {
-    background: #1e40af;
+
+.materias{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
 }
 
-.progress {
-    width: 80%;
-    height: 25px;
-    background: #ddd;
-    margin: auto;
-    border-radius: 20px;
+
+.materia{
+background:white;
+padding:20px;
+border-radius:15px;
+border-left:6px solid #d4af37;
+cursor:pointer;
 }
 
-.bar {
-    height: 100%;
-    width: 60%;
-    background: #22c55e;
-    border-radius: 20px;
+
+.hidden{
+display:none;
 }
+
+
+.barra{
+height:25px;
+background:#ddd;
+border-radius:20px;
+}
+
+.progresso{
+height:100%;
+width:25%;
+background:#0b3d91;
+border-radius:20px;
+}
+
+
+button{
+cursor:pointer;
+}
+
+
+.questao button{
+display:block;
+width:100%;
+margin:10px 0;
+}
+
 
 </style>
 
 </head>
 
+
 <body>
 
+
 <header>
-<h1>🎓 PM Academy</h1>
-<p>Sua plataforma de estudos</p>
+
+<h1>🚔 PM ACADEMY</h1>
+
+<p>Olá, Letícia Lorena 👋</p>
+
+<p>Preparação Concurso PMBA</p>
+
 </header>
 
 
 <nav>
-<button onclick="abrir('inicio')">🏠 Início</button>
+
+<button onclick="abrir('inicio')">🏠 Painel</button>
+
 <button onclick="abrir('materias')">📚 Matérias</button>
-<button onclick="abrir('quiz')">🎯 Quiz</button>
-<button onclick="abrir('flashcards')">🧠 Flashcards</button>
-<button onclick="abrir('desempenho')">📊 Desempenho</button>
+
+<button onclick="abrir('simulado')">📝 Simulado</button>
+
+<button onclick="abrir('evolucao')">🏆 Evolução</button>
+
 </nav>
 
 
 
-<section id="inicio" class="active">
+<div class="container">
+
+
+<section id="inicio">
+
 
 <div class="card">
 
-<h2>Bem-vinda à PM Academy!</h2>
+<h2>📊 Meu Painel</h2>
 
-<p>Organize seus estudos e acompanhe sua evolução.</p>
+<p>📝 Questões feitas: <b id="qtd">0</b></p>
+
+<p>✅ Acertos: <b id="acertos">0</b></p>
+
+<p>❌ Erros: <b id="erros">0</b></p>
+
+<p>🎖️ Patente: Recruta</p>
+
+
+<h3>Progresso</h3>
+
+<div class="barra">
+<div class="progresso"></div>
+</div>
+
 
 </div>
+
 
 </section>
 
 
 
 
-<section id="materias">
+<section id="materias" class="hidden">
 
-<div class="card">
 
-<h2>📚 Matérias</h2>
+<h2>📚 Matérias PMBA</h2>
 
-<p>⚖️ Direito Penal</p>
-<p>📜 Constituição</p>
-<p>🚔 Legislação Militar</p>
-<p>📝 Português</p>
-<p>🌎 Atualidades</p>
+
+<div class="materias">
+
+
+<script>
+
+let materias=[
+
+"Português",
+
+"Raciocínio Lógico | Matemática",
+
+"Informática",
+
+"Direito Administrativo",
+
+"Direito Constitucional",
+
+"Igualdade Racial e de Gênero",
+
+"Direito Penal",
+
+"Direito Processual Penal",
+
+"Direitos Humanos",
+
+"Direito Penal Militar",
+
+"Estatuto da PMBA",
+
+"Geografia do Brasil",
+
+"História do Brasil",
+
+"Redação"
+
+];
+
+
+document.write(
+
+materias.map(m=>`
+
+<div class="materia">
+
+<h3>${m}</h3>
+
+<p>📄 PDFs</p>
+
+<p>📝 Resumos</p>
+
+<p>🧠 Flashcards</p>
+
+<p>❓ Questões</p>
+
+<p>🎯 Simulado</p>
 
 </div>
+
+`).join("")
+
+);
+
+
+</script>
+
+
+</div>
+
 
 </section>
 
@@ -142,23 +257,40 @@ button:hover {
 
 
 
-<section id="quiz">
+<section id="simulado" class="hidden">
 
-<div class="card">
 
-<h2>🎯 Quiz</h2>
+<div class="card questao">
 
-<p id="pergunta">
-Qual é a capital do Brasil?
+
+<h2>🎯 Simulado PMBA</h2>
+
+
+<p>
+A Constituição Federal de 1988 é conhecida como:
 </p>
 
-<button onclick="responder(true)">Brasília</button>
 
-<button onclick="responder(false)">São Paulo</button>
+<button onclick="responder(true)">
+A) Constituição Cidadã
+</button>
 
-<p id="resultado"></p>
+
+<button onclick="responder(false)">
+B) Constituição Imperial
+</button>
+
+
+<button onclick="responder(false)">
+C) Constituição Militar
+</button>
+
+
+<h3 id="resultado"></h3>
+
 
 </div>
+
 
 </section>
 
@@ -166,94 +298,94 @@ Qual é a capital do Brasil?
 
 
 
-<section id="flashcards">
+<section id="evolucao" class="hidden">
+
 
 <div class="card">
 
-<h2>🧠 Flashcards</h2>
+<h2>🏆 Evolução</h2>
 
-<h3 id="flash">
-O que é a Constituição?
-</h3>
 
-<button onclick="mostrar()">Ver resposta</button>
+<p>🎖️ Recruta</p>
+
+<p>⭐ Pontos: 0</p>
+
+<p>🔥 Sequência: 0 dias</p>
+
+
+<h3>Próximas patentes:</h3>
+
+
+<p>
+Recruta → Aluno PM → Soldado → Cabo → Sargento
+</p>
+
 
 </div>
+
 
 </section>
 
 
 
-
-
-<section id="desempenho">
-
-<div class="card">
-
-<h2>📊 Meu Desempenho</h2>
-
-<p>Progresso dos estudos:</p>
-
-<div class="progress">
-
-<div class="bar"></div>
-
 </div>
 
-<p>60% concluído 🚀</p>
-
-
-<h3>🏆 Evolução</h3>
-
-<p>🔥 7 dias estudando</p>
-<p>⭐ 120 pontos</p>
-
-
-</div>
-
-</section>
 
 
 
 
 <script>
 
+
 function abrir(id){
 
-let secoes=document.querySelectorAll("section");
+document.querySelectorAll("section")
+.forEach(x=>x.classList.add("hidden"));
 
-secoes.forEach(s=>s.classList.remove("active"));
-
-document.getElementById(id).classList.add("active");
+document.getElementById(id)
+.classList.remove("hidden");
 
 }
 
+
+
+
+let acertos=0;
+let erros=0;
 
 
 function responder(certo){
 
-let texto=document.getElementById("resultado");
+document.getElementById("qtd").innerHTML=
+parseInt(document.getElementById("qtd").innerHTML)+1;
+
 
 if(certo){
 
-texto.innerHTML="✅ Correto!";
+acertos++;
+
+document.getElementById("resultado").innerHTML=
+"✅ Correto!";
+
 
 }else{
 
-texto.innerHTML="❌ Tente novamente!";
+erros++;
+
+document.getElementById("resultado").innerHTML=
+"❌ Errado!";
+
 
 }
 
+
+document.getElementById("acertos").innerHTML=acertos;
+
+document.getElementById("erros").innerHTML=erros;
+
+
 }
 
-
-
-function mostrar(){
-
-document.getElementById("flash").innerHTML=
-"A Constituição é a lei principal de um país.";
-
-}
 
 </script>
 

@@ -1,100 +1,437 @@
-let questaoAtual = 0;
-let materiaAtual = "portugues";
-let selecionada = "";
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PM Academy - Letícia Lorena</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#f4f6fb;
+}
+
+header{
+background:#061a40;
+color:white;
+padding:25px;
+text-align:center;
+}
+
+nav{
+background:#d4af37;
+padding:10px;
+text-align:center;
+}
+
+button{
+background:#061a40;
+color:white;
+border:0;
+padding:12px;
+margin:5px;
+border-radius:10px;
+cursor:pointer;
+}
+
+.container{
+padding:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:15px;
+margin:15px 0;
+box-shadow:0 3px 10px #ccc;
+}
+
+.hidden{
+display:none;
+}
+
+.materia{
+background:white;
+padding:15px;
+margin:10px;
+border-radius:15px;
+border-left:5px solid #d4af37;
+}
 
 
-function iniciarQuestoes(materia){
+</style>
 
-materiaAtual = materia;
-questaoAtual = 0;
+</head>
 
-abrir("simulado");
+
+<body>
+
+
+<header>
+
+<h1>🚔 PM ACADEMY</h1>
+
+<h3>Olá, Letícia Lorena 👋</h3>
+
+<p>Preparação Concurso PMBA</p>
+
+</header>
+
+
+<nav>
+
+<button onclick="abrir('inicio')">🏠 Painel</button>
+
+<button onclick="abrir('materias')">📚 Matérias</button>
+
+<button onclick="abrir('quiz')">📝 Questões</button>
+
+</nav>
+
+
+
+
+<div class="container">
+
+
+<div id="inicio">
+
+<div class="card">
+
+<h2>📊 Meu Painel</h2>
+
+<p>📝 Questões feitas: <span id="total">0</span></p>
+
+<p>✅ Acertos: <span id="acertos">0</span></p>
+
+<p>❌ Erros: <span id="erros">0</span></p>
+
+<p>🎖️ Patente: Recruta</p>
+
+</div>
+
+</div>
+
+
+
+
+
+<div id="materias" class="hidden">
+
+
+<h2>📚 Matérias PMBA</h2>
+
+
+<div class="materia">
+📖 Português
+<br>
+<button onclick="iniciar('portugues')">Fazer questões</button>
+</div>
+
+
+<div class="materia">
+🧮 Raciocínio Lógico | Matemática
+<br>
+<button onclick="iniciar('matematica')">Fazer questões</button>
+</div>
+
+
+<div class="materia">
+💻 Informática
+<br>
+<button onclick="iniciar('informatica')">Fazer questões</button>
+</div>
+
+
+<div class="materia">
+⚖️ Direito Constitucional
+<br>
+<button onclick="iniciar('constitucional')">Fazer questões</button>
+</div>
+
+
+<div class="materia">
+🚔 Direito Penal
+<br>
+<button onclick="iniciar('penal')">Fazer questões</button>
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div id="quiz" class="hidden">
+
+
+<div class="card">
+
+
+<h2 id="titulo"></h2>
+
+<h3 id="pergunta"></h3>
+
+
+<div id="opcoes"></div>
+
+
+<button onclick="responder()">
+Responder
+</button>
+
+
+<h3 id="resultado"></h3>
+
+<p id="explicacao"></p>
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+const bancoQuestoes={
+
+
+portugues:[
+
+{
+p:"Assinale a alternativa correta:",
+o:[
+"A) Os aluno estudou.",
+"B) Os alunos estudaram.",
+"C) Os alunos estudou.",
+"D) Os aluno estudaram."
+],
+r:"B",
+e:"O verbo deve concordar com o sujeito no plural."
+}
+
+],
+
+
+
+matematica:[
+
+{
+p:"Quanto é 20% de 100?",
+o:[
+"A) 10",
+"B) 20",
+"C) 30",
+"D) 40"
+],
+r:"B",
+e:"20% de 100 é igual a 20."
+}
+
+],
+
+
+
+informatica:[
+
+{
+p:"Qual programa é usado para criar textos?",
+o:[
+"A) Word",
+"B) Paint",
+"C) Calculadora",
+"D) Chrome"
+],
+r:"A",
+e:"O Word é um editor de textos."
+}
+
+],
+
+
+
+constitucional:[
+
+{
+p:"A Constituição Federal de 1988 é conhecida como:",
+o:[
+"A) Constituição Imperial",
+"B) Constituição Cidadã",
+"C) Constituição Militar",
+"D) Constituição Estadual"
+],
+r:"B",
+e:"A CF/88 recebeu o nome de Constituição Cidadã."
+}
+
+],
+
+
+
+penal:[
+
+{
+p:"Crime é definido como:",
+o:[
+"A) Fato típico, ilícito e culpável",
+"B) Um contrato",
+"C) Uma opinião",
+"D) Um ato administrativo"
+],
+r:"A",
+e:"A teoria tripartida define crime dessa forma."
+}
+
+]
+
+
+};
+
+
+
+let materiaAtual="";
+let numero=0;
+let respostaEscolhida="";
+
+let acertos=0;
+let erros=0;
+let total=0;
+
+
+
+function abrir(id){
+
+document.querySelectorAll(".container > div")
+.forEach(x=>x.classList.add("hidden"));
+
+document.getElementById(id)
+.classList.remove("hidden");
+
+}
+
+
+
+
+function iniciar(materia){
+
+materiaAtual=materia;
+
+numero=0;
+
+abrir("quiz");
 
 mostrarQuestao();
 
 }
 
 
+
+
 function mostrarQuestao(){
 
-let q = bancoQuestoes[materiaAtual][questaoAtual];
+let q=bancoQuestoes[materiaAtual][numero];
 
 
-document.getElementById("materiaTitulo").innerHTML =
-"📚 "+materiaAtual.toUpperCase();
+titulo.innerHTML="📚 "+materiaAtual;
 
 
-document.getElementById("numeroQuestao").innerHTML =
-"Questão "+(questaoAtual+1);
+pergunta.innerHTML=q.p;
 
 
-document.getElementById("pergunta").innerHTML =
-q.pergunta;
+opcoes.innerHTML="";
 
 
-let botoes="";
+q.o.forEach(x=>{
 
+opcoes.innerHTML+=`
 
-q.alternativas.forEach((a)=>{
+<button onclick="escolher('${x[0]}')">
 
-botoes += `
-<button onclick="selecionar('${a.charAt(0)}')">
-${a}
+${x}
+
 </button>
+
 `;
 
 });
 
 
-document.getElementById("alternativas").innerHTML=botoes;
+resultado.innerHTML="";
 
-
-document.getElementById("resultado").innerHTML="";
-
-document.getElementById("explicacao").innerHTML="";
+explicacao.innerHTML="";
 
 
 }
 
 
 
-function selecionar(letra){
 
-selecionada=letra;
+function escolher(letra){
+
+respostaEscolhida=letra;
 
 }
 
 
 
-function responderQuestao(){
-
-let q=bancoQuestoes[materiaAtual][questaoAtual];
+function responder(){
 
 
-if(selecionada==q.resposta){
+let q=bancoQuestoes[materiaAtual][numero];
 
-document.getElementById("resultado").innerHTML=
-"✅ Correto!";
+
+total++;
+
+document.getElementById("total").innerHTML=total;
+
+
+if(respostaEscolhida==q.r){
+
+acertos++;
+
+resultado.innerHTML="✅ Correto!";
+
 
 }else{
 
-document.getElementById("resultado").innerHTML=
-"❌ Errado!";
+erros++;
+
+resultado.innerHTML="❌ Errado!";
 
 }
 
 
-document.getElementById("explicacao").innerHTML=
-q.explicacao;
+document.getElementById("acertos").innerHTML=acertos;
+
+document.getElementById("erros").innerHTML=erros;
 
 
-questaoAtual++;
+explicacao.innerHTML=q.e;
 
-
-if(questaoAtual < bancoQuestoes[materiaAtual].length){
-
-setTimeout(mostrarQuestao,2000);
 
 }
 
-}
+
+
+</script>
+
+
+</body>
+
+</html>

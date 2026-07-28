@@ -1,354 +1,121 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
+// BANCO DE QUESTÕES PM ACADEMY
+// Letícia Lorena
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+const bancoQuestoes = {
 
-<title>PM Academy - Letícia Lorena</title>
+portugues: [
 
-<style>
+{
+pergunta:"Assinale a alternativa correta quanto à concordância verbal.",
+alternativas:[
+"A) Os aluno estudou muito.",
+"B) Os alunos estudaram muito.",
+"C) Os alunos estudou muito.",
+"D) Os aluno estudaram muito."
+],
+resposta:"B",
+explicacao:"O verbo deve concordar com o sujeito. Como 'alunos' está no plural, o verbo correto é 'estudaram'."
+},
 
-body{
-margin:0;
-font-family:Arial;
-background:#f4f6fb;
-color:#222;
+
+{
+pergunta:"A palavra 'rapidamente' é classificada como:",
+alternativas:[
+"A) Substantivo",
+"B) Adjetivo",
+"C) Advérbio",
+"D) Pronome"
+],
+resposta:"C",
+explicacao:"Rapidamente indica modo da ação, sendo um advérbio."
+},
+
+
+{
+pergunta:"O uso da crase ocorre quando há:",
+alternativas:[
+"A) Fusão da preposição a com artigo a",
+"B) Apenas uma vogal",
+"C) Um verbo no infinitivo",
+"D) Uma palavra masculina"
+],
+resposta:"A",
+explicacao:"A crase representa a união da preposição 'a' com o artigo feminino 'a'."
 }
 
-header{
-background:#061a40;
-color:white;
-padding:25px;
-text-align:center;
+],
+
+
+
+matematica:[
+
+{
+pergunta:"Quanto é 20% de 100?",
+alternativas:[
+"A) 10",
+"B) 20",
+"C) 30",
+"D) 40"
+],
+resposta:"B",
+explicacao:"20% de 100 corresponde a 20."
 }
 
-nav{
-background:#d4af37;
-padding:10px;
-text-align:center;
+],
+
+
+
+informatica:[
+
+{
+pergunta:"Qual programa é utilizado para criar textos?",
+alternativas:[
+"A) Word",
+"B) Paint",
+"C) Calculadora",
+"D) Bloco de notas"
+],
+resposta:"A",
+explicacao:"O Microsoft Word é um editor de textos."
 }
 
-nav button{
-background:#061a40;
-color:white;
-border:0;
-padding:12px;
-margin:5px;
-border-radius:10px;
-cursor:pointer;
+],
+
+
+
+constitucional:[
+
+{
+pergunta:"A Constituição Federal de 1988 é conhecida como:",
+alternativas:[
+"A) Constituição Imperial",
+"B) Constituição Cidadã",
+"C) Constituição Militar",
+"D) Constituição Estadual"
+],
+resposta:"B",
+explicacao:"A Constituição de 1988 recebeu o nome de Constituição Cidadã."
 }
 
-.container{
-padding:20px;
+],
+
+
+
+penal:[
+
+{
+pergunta:"Crime é definido como:",
+alternativas:[
+"A) Fato típico, ilícito e culpável",
+"B) Apenas uma opinião",
+"C) Um contrato",
+"D) Um ato administrativo"
+],
+resposta:"A",
+explicacao:"A teoria tripartida define crime como fato típico, ilícito e culpável."
 }
 
-.card{
-background:white;
-padding:20px;
-margin:15px 0;
-border-radius:15px;
-box-shadow:0 3px 10px #ccc;
-}
+]
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:15px;
-}
 
-.materia{
-background:white;
-padding:20px;
-border-radius:15px;
-border-left:6px solid #d4af37;
-}
-
-.materia button{
-background:#061a40;
-color:white;
-border:0;
-padding:10px;
-border-radius:8px;
-}
-
-.hidden{
-display:none;
-}
-
-.item{
-background:#eee;
-padding:10px;
-margin:8px;
-border-radius:8px;
-}
-
-</style>
-
-</head>
-
-<body>
-
-
-<header>
-
-<h1>🚔 PM ACADEMY</h1>
-
-<h3>Olá, Letícia Lorena 👋</h3>
-
-<p>Preparação Concurso PMBA</p>
-
-</header>
-
-
-<nav>
-
-<button onclick="abrir('inicio')">🏠 Painel</button>
-
-<button onclick="abrir('materias')">📚 Matérias</button>
-
-<button onclick="abrir('simulado')">📝 Simulado</button>
-
-<button onclick="abrir('evolucao')">🏆 Evolução</button>
-
-</nav>
-
-
-
-<div class="container">
-
-
-<div id="inicio">
-
-<div class="card">
-
-<h2>📊 Meu Painel</h2>
-
-<p>📝 Questões feitas: 0</p>
-
-<p>✅ Acertos: 0</p>
-
-<p>❌ Erros: 0</p>
-
-<p>🎖️ Patente: Recruta</p>
-
-</div>
-
-</div>
-
-
-
-
-
-<div id="materias" class="hidden">
-
-<h2>📚 Matérias PMBA</h2>
-
-
-<div class="grid">
-
-
-<div class="materia">
-<h3>📖 Português</h3>
-<p>45 Vídeos | 98 Materiais</p>
-<button onclick="materia('Português')">Abrir</button>
-</div>
-
-
-<div class="materia">
-<h3>🧮 Raciocínio Lógico | Matemática</h3>
-<p>57 Vídeos | 69 Materiais</p>
-<button onclick="materia('Matemática')">Abrir</button>
-</div>
-
-
-<div class="materia">
-<h3>💻 Informática</h3>
-<p>71 Vídeos | 78 Materiais</p>
-<button onclick="materia('Informática')">Abrir</button>
-</div>
-
-
-<div class="materia">
-<h3>⚖️ Direito Administrativo</h3>
-<p>70 Vídeos | 88 Materiais</p>
-<button onclick="materia('Direito Administrativo')">Abrir</button>
-</div>
-
-
-<div class="materia">
-<h3>⚖️ Direito Constitucional</h3>
-<p>82 Vídeos | 62 Materiais</p>
-<button onclick="materia('Direito Constitucional')">Abrir</button>
-</div>
-
-
-<div class="materia">
-<h3>🤝 Igualdade Racial e Gênero</h3>
-<p>34 Vídeos | 17 Materiais</p>
-<button onclick="materia('Igualdade')">Abrir</button>
-</div>
-
-
-<div class="materia">
-<h3>🚔 Direito Penal</h3>
-<p>37 Vídeos | 35 Materiais</p>
-<button onclick="materia('Direito Penal')">Abrir</button>
-</div>
-
-
-<div class="materia">
-<h3>⚖️ Processo Penal</h3>
-<p>28 Vídeos | 25 Materiais</p>
-<button onclick="materia('Processo Penal')">Abrir</button>
-</div>
-
-
-<div class="materia">
-<h3>🌎 Direitos Humanos</h3>
-<p>19 Vídeos | 25 Materiais</p>
-<button onclick="materia('Direitos Humanos')">Abrir</button>
-</div>
-
-
-<div class="materia">
-<h3>🪖 Direito Penal Militar</h3>
-<p>20 Vídeos | 1 Material</p>
-<button onclick="materia('Penal Militar')">Abrir</button>
-</div>
-
-
-<div class="materia">
-<h3>📜 Estatuto PMBA</h3>
-<p>8 Vídeos | 1 Material</p>
-<button onclick="materia('Estatuto PMBA')">Abrir</button>
-</div>
-
-
-<div class="materia">
-<h3>🌎 Geografia do Brasil</h3>
-<p>23 Vídeos</p>
-<button onclick="materia('Geografia')">Abrir</button>
-</div>
-
-
-<div class="materia">
-<h3>📚 História do Brasil</h3>
-<p>44 Vídeos</p>
-<button onclick="materia('História')">Abrir</button>
-</div>
-
-
-<div class="materia">
-<h3>📝 Redação</h3>
-<button onclick="materia('Redação')">Abrir</button>
-</div>
-
-
-</div>
-
-</div>
-
-
-
-
-
-
-<div id="detalhe" class="hidden">
-
-<div class="card">
-
-<h2 id="nomeMateria"></h2>
-
-
-<div class="item">🎥 Aulas</div>
-
-<div class="item">📄 PDFs (adicionar seus arquivos)</div>
-
-<div class="item">📝 Resumos</div>
-
-<div class="item">🧠 Flashcards</div>
-
-<div class="item">❓ Questões</div>
-
-<div class="item">🎯 Simulado da matéria</div>
-
-
-</div>
-
-</div>
-
-
-
-
-
-
-<div id="simulado" class="hidden">
-
-<div class="card">
-
-<h2>📝 Simulado PMBA</h2>
-
-<p>Banco de questões será adicionado nesta etapa.</p>
-
-</div>
-
-</div>
-
-
-
-
-
-
-<div id="evolucao" class="hidden">
-
-<div class="card">
-
-<h2>🏆 Evolução</h2>
-
-<p>🎖️ Recruta</p>
-
-<p>⭐ Pontos: 0</p>
-
-<p>Próximo nível: Aluno PM</p>
-
-</div>
-
-</div>
-
-
-
-</div>
-
-
-
-<script>
-
-
-function abrir(id){
-
-document.querySelectorAll(".container > div")
-.forEach(x=>x.classList.add("hidden"));
-
-document.getElementById(id)
-.classList.remove("hidden");
-
-}
-
-
-
-function materia(nome){
-
-document.getElementById("nomeMateria").innerHTML=
-"📚 "+nome;
-
-abrir("detalhe");
-
-}
-
-
-</script>
-
-
-</body>
-</html>
+};

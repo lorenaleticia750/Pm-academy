@@ -1,472 +1,101 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>PM Academy - Letícia Lorena</title>
-
-<style>
-
-*{
-box-sizing:border-box;
-font-family:Arial, sans-serif;
-}
-
-body{
-margin:0;
-background:#eef2f7;
-color:#222;
-}
-
-
-header{
-background:linear-gradient(135deg,#061a40,#0d47a1);
-color:white;
-padding:30px;
-text-align:center;
-}
-
-
-header h1{
-font-size:35px;
-}
-
-
-nav{
-background:#d4af37;
-padding:15px;
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-}
-
-
-nav button{
-background:#061a40;
-color:white;
-border:none;
-padding:12px;
-margin:5px;
-border-radius:12px;
-cursor:pointer;
-}
-
-
-.container{
-padding:20px;
-}
-
-
-.card{
-background:white;
-padding:20px;
-border-radius:20px;
-margin-bottom:20px;
-box-shadow:0 5px 15px #ccc;
-}
-
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:15px;
-}
-
-
-.materia{
-background:white;
-padding:20px;
-border-radius:15px;
-border-left:6px solid #d4af37;
-}
-
-
-button{
-cursor:pointer;
-}
-
-
-.btn{
-background:#061a40;
-color:white;
-border:0;
-padding:10px;
-border-radius:10px;
-}
-
-
-.hidden{
-display:none;
-}
-
-
-footer{
-background:#061a40;
-color:white;
-text-align:center;
-padding:20px;
-margin-top:30px;
-}
-
-
-.item{
-background:#f1f1f1;
-padding:12px;
-margin:8px;
-border-radius:10px;
-}
-
-
-
-</style>
-
-</head>
-
-
-<body>
-
-
-<header>
-
-<h1>🚔 PM ACADEMY</h1>
-
-<h2>Olá, Letícia Lorena 👋</h2>
-
-<p>Preparação para Concursos Policiais</p>
-
-</header>
-
-
-
-<nav>
-
-<button onclick="abrir('painel')">🏠 Painel</button>
-
-<button onclick="abrir('materias')">📚 Matérias</button>
-
-<button onclick="abrir('questoes')">📝 Questões</button>
-
-<button onclick="abrir('editais')">📑 Editais</button>
-
-<button onclick="abrir('provas')">📄 Provas</button>
-
-<button onclick="abrir('taf')">🏃 TAF</button>
-
-
-</nav>
-
-
-
-
-<div class="container">
-
-
-
-<section id="painel">
-
-
-<div class="card">
-
-<h2>📊 Meu Painel</h2>
-
-
-<h3>👮 Letícia Lorena</h3>
-
-
-<div class="item">
-📝 Questões feitas: 0
-</div>
-
-
-<div class="item">
-✅ Acertos: 0
-</div>
-
-
-<div class="item">
-❌ Erros: 0
-</div>
-
-
-<div class="item">
-🎖️ Patente: Recruta
-</div>
-
-
-<div class="item">
-📈 Progresso: 0%
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-<section id="materias" class="hidden">
-
-
-<h2>📚 Matérias PMBA</h2>
-
-
-<div class="grid">
-
-
 <script>
 
-let materias=[
+let questaoAtual = 0;
+let materiaAtual = "portugues";
+let selecionada = "";
 
-"📖 Português",
-"🧮 Raciocínio Lógico | Matemática",
-"💻 Informática",
-"⚖️ Direito Administrativo",
-"⚖️ Direito Constitucional",
-"🤝 Igualdade Racial e Gênero",
-"🚔 Direito Penal",
-"⚖️ Direito Processual Penal",
-"🌎 Direitos Humanos",
-"🪖 Direito Penal Militar",
-"📜 Estatuto PMBA",
-"🌎 Geografia do Brasil",
-"📚 História do Brasil",
-"📝 Redação"
+function iniciarQuestoes(materia){
 
-];
+materiaAtual = materia;
+questaoAtual = 0;
 
+abrir("simulado");
 
-document.write(
-
-materias.map(m=>`
-
-<div class="materia">
-
-<h3>${m}</h3>
-
-
-<button class="btn">
-📄 Adicionar PDF
-</button>
-
-
-<button class="btn">
-🎥 Adicionar Vídeo
-</button>
-
-
-<button class="btn">
-📝 Questões
-</button>
-
-
-</div>
-
-
-`).join("")
-
-);
-
-</script>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-<section id="questoes" class="hidden">
-
-
-<div class="card">
-
-<h2>📝 Banco de Questões</h2>
-
-
-<p>
-Questões separadas por matéria.
-</p>
-
-
-<button class="btn">
-Iniciar Simulado
-</button>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-<section id="editais" class="hidden">
-
-
-<div class="card">
-
-
-<h2>📑 Editais</h2>
-
-
-<div class="item">
-🚔 PM Bahia
-<br>
-Adicionar edital e informações do concurso
-</div>
-
-
-<div class="item">
-👮 Polícia Civil
-<br>
-Adicionar edital
-</div>
-
-
-<div class="item">
-🕵️ Polícia Federal - Escrivão
-<br>
-Adicionar edital
-</div>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<section id="provas" class="hidden">
-
-
-<div class="card">
-
-
-<h2>📄 Provas Anteriores</h2>
-
-
-<div class="item">
-🚔 Provas PMBA + Gabaritos
-</div>
-
-
-<div class="item">
-👮 Provas Polícia Civil
-</div>
-
-
-<div class="item">
-🕵️ Provas Polícia Federal Escrivão
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<section id="taf" class="hidden">
-
-
-<div class="card">
-
-
-<h2>🏃 Treino TAF</h2>
-
-
-<div class="item">
-🏃 Corrida
-</div>
-
-
-<div class="item">
-💪 Flexão
-</div>
-
-
-<div class="item">
-🤸 Abdominal
-</div>
-
-
-<div class="item">
-📊 Controle de evolução
-</div>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-</div>
-
-
-
-
-
-<footer>
-
-🚔 PM Academy  
-<br>
-Criado para Letícia Lorena 💙
-
-</footer>
-
-
-
-
-<script>
-
-
-function abrir(id){
-
-
-document.querySelectorAll("section")
-.forEach(sec=>sec.classList.add("hidden"));
-
-
-document.getElementById(id)
-.classList.remove("hidden");
-
+mostrarQuestao();
 
 }
 
 
+function mostrarQuestao(){
+
+let q = bancoQuestoes[materiaAtual][questaoAtual];
+
+
+document.getElementById("materiaTitulo").innerHTML =
+"📚 "+materiaAtual.toUpperCase();
+
+
+document.getElementById("numeroQuestao").innerHTML =
+"Questão "+(questaoAtual+1);
+
+
+document.getElementById("pergunta").innerHTML =
+q.pergunta;
+
+
+let botoes="";
+
+
+q.alternativas.forEach((a)=>{
+
+botoes += `
+<button onclick="selecionar('${a.charAt(0)}')">
+${a}
+</button>
+`;
+
+});
+
+
+document.getElementById("alternativas").innerHTML=botoes;
+
+document.getElementById("resultado").innerHTML="";
+
+document.getElementById("explicacao").innerHTML="";
+
+}
+
+
+
+function selecionar(letra){
+
+selecionada = letra;
+
+}
+
+
+
+function responderQuestao(){
+
+let q = bancoQuestoes[materiaAtual][questaoAtual];
+
+
+if(selecionada == q.resposta){
+
+document.getElementById("resultado").innerHTML =
+"✅ Correto!";
+
+}else{
+
+document.getElementById("resultado").innerHTML =
+"❌ Errado!";
+
+}
+
+
+document.getElementById("explicacao").innerHTML =
+q.explicacao;
+
+
+questaoAtual++;
+
+
+if(questaoAtual < bancoQuestoes[materiaAtual].length){
+
+setTimeout(mostrarQuestao,2000);
+
+}
+
+}
+
 </script>
-
-
-
-</body>
-
-</html>

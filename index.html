@@ -1,121 +1,100 @@
-// BANCO DE QUESTÕES PM ACADEMY
-// Letícia Lorena
-
-const bancoQuestoes = {
-
-portugues: [
-
-{
-pergunta:"Assinale a alternativa correta quanto à concordância verbal.",
-alternativas:[
-"A) Os aluno estudou muito.",
-"B) Os alunos estudaram muito.",
-"C) Os alunos estudou muito.",
-"D) Os aluno estudaram muito."
-],
-resposta:"B",
-explicacao:"O verbo deve concordar com o sujeito. Como 'alunos' está no plural, o verbo correto é 'estudaram'."
-},
+let questaoAtual = 0;
+let materiaAtual = "portugues";
+let selecionada = "";
 
 
-{
-pergunta:"A palavra 'rapidamente' é classificada como:",
-alternativas:[
-"A) Substantivo",
-"B) Adjetivo",
-"C) Advérbio",
-"D) Pronome"
-],
-resposta:"C",
-explicacao:"Rapidamente indica modo da ação, sendo um advérbio."
-},
+function iniciarQuestoes(materia){
 
+materiaAtual = materia;
+questaoAtual = 0;
 
-{
-pergunta:"O uso da crase ocorre quando há:",
-alternativas:[
-"A) Fusão da preposição a com artigo a",
-"B) Apenas uma vogal",
-"C) Um verbo no infinitivo",
-"D) Uma palavra masculina"
-],
-resposta:"A",
-explicacao:"A crase representa a união da preposição 'a' com o artigo feminino 'a'."
+abrir("simulado");
+
+mostrarQuestao();
+
 }
 
-],
+
+function mostrarQuestao(){
+
+let q = bancoQuestoes[materiaAtual][questaoAtual];
 
 
+document.getElementById("materiaTitulo").innerHTML =
+"📚 "+materiaAtual.toUpperCase();
 
-matematica:[
 
-{
-pergunta:"Quanto é 20% de 100?",
-alternativas:[
-"A) 10",
-"B) 20",
-"C) 30",
-"D) 40"
-],
-resposta:"B",
-explicacao:"20% de 100 corresponde a 20."
+document.getElementById("numeroQuestao").innerHTML =
+"Questão "+(questaoAtual+1);
+
+
+document.getElementById("pergunta").innerHTML =
+q.pergunta;
+
+
+let botoes="";
+
+
+q.alternativas.forEach((a)=>{
+
+botoes += `
+<button onclick="selecionar('${a.charAt(0)}')">
+${a}
+</button>
+`;
+
+});
+
+
+document.getElementById("alternativas").innerHTML=botoes;
+
+
+document.getElementById("resultado").innerHTML="";
+
+document.getElementById("explicacao").innerHTML="";
+
+
 }
 
-],
 
 
+function selecionar(letra){
 
-informatica:[
+selecionada=letra;
 
-{
-pergunta:"Qual programa é utilizado para criar textos?",
-alternativas:[
-"A) Word",
-"B) Paint",
-"C) Calculadora",
-"D) Bloco de notas"
-],
-resposta:"A",
-explicacao:"O Microsoft Word é um editor de textos."
 }
 
-],
 
 
+function responderQuestao(){
 
-constitucional:[
+let q=bancoQuestoes[materiaAtual][questaoAtual];
 
-{
-pergunta:"A Constituição Federal de 1988 é conhecida como:",
-alternativas:[
-"A) Constituição Imperial",
-"B) Constituição Cidadã",
-"C) Constituição Militar",
-"D) Constituição Estadual"
-],
-resposta:"B",
-explicacao:"A Constituição de 1988 recebeu o nome de Constituição Cidadã."
+
+if(selecionada==q.resposta){
+
+document.getElementById("resultado").innerHTML=
+"✅ Correto!";
+
+}else{
+
+document.getElementById("resultado").innerHTML=
+"❌ Errado!";
+
 }
 
-],
+
+document.getElementById("explicacao").innerHTML=
+q.explicacao;
 
 
+questaoAtual++;
 
-penal:[
 
-{
-pergunta:"Crime é definido como:",
-alternativas:[
-"A) Fato típico, ilícito e culpável",
-"B) Apenas uma opinião",
-"C) Um contrato",
-"D) Um ato administrativo"
-],
-resposta:"A",
-explicacao:"A teoria tripartida define crime como fato típico, ilícito e culpável."
+if(questaoAtual < bancoQuestoes[materiaAtual].length){
+
+setTimeout(mostrarQuestao,2000);
+
 }
 
-]
-
-
-};
+}

@@ -9,110 +9,83 @@
 
 <style>
 
-*{
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
 body{
 margin:0;
-background:#f5f7fb;
+font-family:Arial;
+background:#f4f6fb;
 color:#222;
 }
 
 header{
-background:linear-gradient(135deg,#061a40,#0b3d91);
+background:#061a40;
 color:white;
 padding:25px;
 text-align:center;
 }
 
-header h1{
-margin:0;
-}
-
 nav{
 background:#d4af37;
 padding:10px;
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
+text-align:center;
 }
 
 nav button{
-margin:5px;
-padding:12px;
-border:0;
-border-radius:10px;
 background:#061a40;
 color:white;
+border:0;
+padding:12px;
+margin:5px;
+border-radius:10px;
 cursor:pointer;
 }
 
 .container{
-padding:15px;
+padding:20px;
 }
 
 .card{
 background:white;
 padding:20px;
 margin:15px 0;
-border-radius:18px;
-box-shadow:0 4px 12px #ccc;
+border-radius:15px;
+box-shadow:0 3px 10px #ccc;
 }
 
-
-.materias{
+.grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:15px;
 }
-
 
 .materia{
 background:white;
 padding:20px;
 border-radius:15px;
 border-left:6px solid #d4af37;
-cursor:pointer;
 }
 
+.materia button{
+background:#061a40;
+color:white;
+border:0;
+padding:10px;
+border-radius:8px;
+}
 
 .hidden{
 display:none;
 }
 
-
-.barra{
-height:25px;
-background:#ddd;
-border-radius:20px;
+.item{
+background:#eee;
+padding:10px;
+margin:8px;
+border-radius:8px;
 }
-
-.progresso{
-height:100%;
-width:25%;
-background:#0b3d91;
-border-radius:20px;
-}
-
-
-button{
-cursor:pointer;
-}
-
-
-.questao button{
-display:block;
-width:100%;
-margin:10px 0;
-}
-
 
 </style>
 
 </head>
-
 
 <body>
 
@@ -121,7 +94,7 @@ margin:10px 0;
 
 <h1>🚔 PM ACADEMY</h1>
 
-<p>Olá, Letícia Lorena 👋</p>
+<h3>Olá, Letícia Lorena 👋</h3>
 
 <p>Preparação Concurso PMBA</p>
 
@@ -145,192 +118,207 @@ margin:10px 0;
 <div class="container">
 
 
-<section id="inicio">
-
+<div id="inicio">
 
 <div class="card">
 
 <h2>📊 Meu Painel</h2>
 
-<p>📝 Questões feitas: <b id="qtd">0</b></p>
+<p>📝 Questões feitas: 0</p>
 
-<p>✅ Acertos: <b id="acertos">0</b></p>
+<p>✅ Acertos: 0</p>
 
-<p>❌ Erros: <b id="erros">0</b></p>
+<p>❌ Erros: 0</p>
 
 <p>🎖️ Patente: Recruta</p>
 
-
-<h3>Progresso</h3>
-
-<div class="barra">
-<div class="progresso"></div>
 </div>
-
 
 </div>
 
 
-</section>
 
 
 
-
-<section id="materias" class="hidden">
-
+<div id="materias" class="hidden">
 
 <h2>📚 Matérias PMBA</h2>
 
 
-<div class="materias">
+<div class="grid">
 
-
-<script>
-
-let materias=[
-
-"Português",
-
-"Raciocínio Lógico | Matemática",
-
-"Informática",
-
-"Direito Administrativo",
-
-"Direito Constitucional",
-
-"Igualdade Racial e de Gênero",
-
-"Direito Penal",
-
-"Direito Processual Penal",
-
-"Direitos Humanos",
-
-"Direito Penal Militar",
-
-"Estatuto da PMBA",
-
-"Geografia do Brasil",
-
-"História do Brasil",
-
-"Redação"
-
-];
-
-
-document.write(
-
-materias.map(m=>`
 
 <div class="materia">
-
-<h3>${m}</h3>
-
-<p>📄 PDFs</p>
-
-<p>📝 Resumos</p>
-
-<p>🧠 Flashcards</p>
-
-<p>❓ Questões</p>
-
-<p>🎯 Simulado</p>
-
-</div>
-
-`).join("")
-
-);
-
-
-</script>
-
-
+<h3>📖 Português</h3>
+<p>45 Vídeos | 98 Materiais</p>
+<button onclick="materia('Português')">Abrir</button>
 </div>
 
 
-</section>
+<div class="materia">
+<h3>🧮 Raciocínio Lógico | Matemática</h3>
+<p>57 Vídeos | 69 Materiais</p>
+<button onclick="materia('Matemática')">Abrir</button>
+</div>
 
 
+<div class="materia">
+<h3>💻 Informática</h3>
+<p>71 Vídeos | 78 Materiais</p>
+<button onclick="materia('Informática')">Abrir</button>
+</div>
 
 
-
-<section id="simulado" class="hidden">
-
-
-<div class="card questao">
-
-
-<h2>🎯 Simulado PMBA</h2>
+<div class="materia">
+<h3>⚖️ Direito Administrativo</h3>
+<p>70 Vídeos | 88 Materiais</p>
+<button onclick="materia('Direito Administrativo')">Abrir</button>
+</div>
 
 
-<p>
-A Constituição Federal de 1988 é conhecida como:
-</p>
+<div class="materia">
+<h3>⚖️ Direito Constitucional</h3>
+<p>82 Vídeos | 62 Materiais</p>
+<button onclick="materia('Direito Constitucional')">Abrir</button>
+</div>
 
 
-<button onclick="responder(true)">
-A) Constituição Cidadã
-</button>
+<div class="materia">
+<h3>🤝 Igualdade Racial e Gênero</h3>
+<p>34 Vídeos | 17 Materiais</p>
+<button onclick="materia('Igualdade')">Abrir</button>
+</div>
 
 
-<button onclick="responder(false)">
-B) Constituição Imperial
-</button>
+<div class="materia">
+<h3>🚔 Direito Penal</h3>
+<p>37 Vídeos | 35 Materiais</p>
+<button onclick="materia('Direito Penal')">Abrir</button>
+</div>
 
 
-<button onclick="responder(false)">
-C) Constituição Militar
-</button>
+<div class="materia">
+<h3>⚖️ Processo Penal</h3>
+<p>28 Vídeos | 25 Materiais</p>
+<button onclick="materia('Processo Penal')">Abrir</button>
+</div>
 
 
-<h3 id="resultado"></h3>
+<div class="materia">
+<h3>🌎 Direitos Humanos</h3>
+<p>19 Vídeos | 25 Materiais</p>
+<button onclick="materia('Direitos Humanos')">Abrir</button>
+</div>
+
+
+<div class="materia">
+<h3>🪖 Direito Penal Militar</h3>
+<p>20 Vídeos | 1 Material</p>
+<button onclick="materia('Penal Militar')">Abrir</button>
+</div>
+
+
+<div class="materia">
+<h3>📜 Estatuto PMBA</h3>
+<p>8 Vídeos | 1 Material</p>
+<button onclick="materia('Estatuto PMBA')">Abrir</button>
+</div>
+
+
+<div class="materia">
+<h3>🌎 Geografia do Brasil</h3>
+<p>23 Vídeos</p>
+<button onclick="materia('Geografia')">Abrir</button>
+</div>
+
+
+<div class="materia">
+<h3>📚 História do Brasil</h3>
+<p>44 Vídeos</p>
+<button onclick="materia('História')">Abrir</button>
+</div>
+
+
+<div class="materia">
+<h3>📝 Redação</h3>
+<button onclick="materia('Redação')">Abrir</button>
+</div>
 
 
 </div>
 
-
-</section>
-
+</div>
 
 
 
 
-<section id="evolucao" class="hidden">
 
+
+<div id="detalhe" class="hidden">
+
+<div class="card">
+
+<h2 id="nomeMateria"></h2>
+
+
+<div class="item">🎥 Aulas</div>
+
+<div class="item">📄 PDFs (adicionar seus arquivos)</div>
+
+<div class="item">📝 Resumos</div>
+
+<div class="item">🧠 Flashcards</div>
+
+<div class="item">❓ Questões</div>
+
+<div class="item">🎯 Simulado da matéria</div>
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+<div id="simulado" class="hidden">
+
+<div class="card">
+
+<h2>📝 Simulado PMBA</h2>
+
+<p>Banco de questões será adicionado nesta etapa.</p>
+
+</div>
+
+</div>
+
+
+
+
+
+
+<div id="evolucao" class="hidden">
 
 <div class="card">
 
 <h2>🏆 Evolução</h2>
 
-
 <p>🎖️ Recruta</p>
 
 <p>⭐ Pontos: 0</p>
 
-<p>🔥 Sequência: 0 dias</p>
+<p>Próximo nível: Aluno PM</p>
 
-
-<h3>Próximas patentes:</h3>
-
-
-<p>
-Recruta → Aluno PM → Soldado → Cabo → Sargento
-</p>
-
+</div>
 
 </div>
 
 
-</section>
-
-
 
 </div>
-
-
 
 
 
@@ -339,7 +327,7 @@ Recruta → Aluno PM → Soldado → Cabo → Sargento
 
 function abrir(id){
 
-document.querySelectorAll("section")
+document.querySelectorAll(".container > div")
 .forEach(x=>x.classList.add("hidden"));
 
 document.getElementById(id)
@@ -349,40 +337,12 @@ document.getElementById(id)
 
 
 
+function materia(nome){
 
-let acertos=0;
-let erros=0;
+document.getElementById("nomeMateria").innerHTML=
+"📚 "+nome;
 
-
-function responder(certo){
-
-document.getElementById("qtd").innerHTML=
-parseInt(document.getElementById("qtd").innerHTML)+1;
-
-
-if(certo){
-
-acertos++;
-
-document.getElementById("resultado").innerHTML=
-"✅ Correto!";
-
-
-}else{
-
-erros++;
-
-document.getElementById("resultado").innerHTML=
-"❌ Errado!";
-
-
-}
-
-
-document.getElementById("acertos").innerHTML=acertos;
-
-document.getElementById("erros").innerHTML=erros;
-
+abrir("detalhe");
 
 }
 

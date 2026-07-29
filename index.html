@@ -1,101 +1,469 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PM Academy - Letícia Lorena</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#eef2f7;
+}
+
+header{
+background:#061a40;
+color:white;
+padding:25px;
+text-align:center;
+}
+
+nav{
+background:#d4af37;
+padding:10px;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+button{
+background:#061a40;
+color:white;
+border:0;
+padding:12px;
+margin:5px;
+border-radius:10px;
+cursor:pointer;
+}
+
+.container{
+padding:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:15px;
+margin:15px 0;
+box-shadow:0 3px 10px #ccc;
+}
+
+.materia{
+background:white;
+padding:15px;
+margin:10px 0;
+border-radius:15px;
+border-left:5px solid #d4af37;
+}
+
+.hidden{
+display:none;
+}
+
+.item{
+background:#f5f5f5;
+padding:10px;
+margin:10px;
+border-radius:10px;
+}
+
+footer{
+background:#061a40;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>🚔 PM ACADEMY</h1>
+
+<h2>Olá, Letícia Lorena 👋</h2>
+
+<p>Preparação Concurso PMBA</p>
+
+</header>
+
+
+
+<nav>
+
+<button onclick="abrir('painel')">🏠 Painel</button>
+
+<button onclick="abrir('materias')">📚 Matérias</button>
+
+<button onclick="abrir('questoes')">📝 Questões</button>
+
+<button onclick="abrir('editais')">📑 Editais</button>
+
+<button onclick="abrir('provas')">📄 Provas</button>
+
+<button onclick="abrir('taf')">🏃 TAF</button>
+
+</nav>
+
+
+
+
+<div class="container">
+
+
+<section id="painel">
+
+<div class="card">
+
+<h2>📊 Meu Painel</h2>
+
+<h3>👮 Letícia Lorena</h3>
+
+<div class="item">
+📝 Questões feitas: 0
+</div>
+
+<div class="item">
+✅ Acertos: 0
+</div>
+
+<div class="item">
+❌ Erros: 0
+</div>
+
+<div class="item">
+🎖️ Patente: Recruta
+</div>
+
+<div class="item">
+📈 Progresso: 0%
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+<section id="materias" class="hidden">
+
+<h2>📚 Matérias PMBA</h2>
+
+
+<div class="materia">
+📖 Português
+<button onclick="materia('Português')">Abrir</button>
+</div>
+
+
+<div class="materia">
+🧮 Raciocínio Lógico | Matemática
+<button onclick="materia('Matemática')">Abrir</button>
+</div>
+
+
+<div class="materia">
+💻 Informática
+<button onclick="materia('Informática')">Abrir</button>
+</div>
+
+
+<div class="materia">
+⚖️ Direito Administrativo
+<button onclick="materia('Direito Administrativo')">Abrir</button>
+</div>
+
+
+<div class="materia">
+⚖️ Direito Constitucional
+<button onclick="materia('Direito Constitucional')">Abrir</button>
+</div>
+
+
+<div class="materia">
+🚔 Direito Penal
+<button onclick="materia('Direito Penal')">Abrir</button>
+</div>
+
+
+<div class="materia">
+⚖️ Processo Penal
+<button onclick="materia('Processo Penal')">Abrir</button>
+</div>
+
+
+<div class="materia">
+🌎 Direitos Humanos
+<button onclick="materia('Direitos Humanos')">Abrir</button>
+</div>
+
+
+<div class="materia">
+🪖 Direito Penal Militar
+<button onclick="materia('Penal Militar')">Abrir</button>
+</div>
+
+
+<div class="materia">
+📜 Estatuto PMBA
+<button onclick="materia('Estatuto PMBA')">Abrir</button>
+</div>
+
+
+<div class="materia">
+🌎 Geografia do Brasil
+<button onclick="materia('Geografia')">Abrir</button>
+</div>
+
+
+<div class="materia">
+📚 História do Brasil
+<button onclick="materia('História')">Abrir</button>
+</div>
+
+
+<div class="materia">
+📝 Redação
+<button onclick="materia('Redação')">Abrir</button>
+</div>
+
+
+</section>
+
+
+
+
+
+
+<section id="materia" class="hidden">
+
+<div class="card">
+
+<h2 id="nomeMateria"></h2>
+
+
+<div class="item">
+📄 PDFs
+
+<br><br>
+
+<input placeholder="Cole o link do PDF">
+
+</div>
+
+
+<div class="item">
+
+🎥 Vídeos
+
+<br><br>
+
+<input placeholder="Cole o link do vídeo">
+
+</div>
+
+
+<div class="item">
+
+📝 Resumos
+
+<br><br>
+
+<textarea placeholder="Digite seus resumos"></textarea>
+
+</div>
+
+
+<div class="item">
+
+🧠 Flashcards
+
+<br><br>
+
+<textarea placeholder="Crie seus flashcards"></textarea>
+
+</div>
+
+
+<div class="item">
+
+❓ Questões
+
+<br>
+
+<button>
+Iniciar Simulado
+</button>
+
+</div>
+
+
+<button onclick="abrir('materias')">
+⬅ Voltar
+</button>
+
+
+</div>
+
+</section>
+
+
+
+
+
+
+<section id="questoes" class="hidden">
+
+<div class="card">
+
+<h2>📝 Banco de Questões</h2>
+
+<p>Questões separadas por matéria.</p>
+
+<button>
+Iniciar Simulado
+</button>
+
+</div>
+
+</section>
+
+
+
+
+
+
+<section id="editais" class="hidden">
+
+<div class="card">
+
+<h2>📑 Editais</h2>
+
+<div class="item">
+🚔 PM Bahia
+</div>
+
+<div class="item">
+👮 Polícia Civil
+</div>
+
+<div class="item">
+🕵️ Polícia Federal Escrivão
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+
+<section id="provas" class="hidden">
+
+<div class="card">
+
+<h2>📄 Provas Anteriores</h2>
+
+<div class="item">
+🚔 Provas PMBA + Gabaritos
+</div>
+
+<div class="item">
+👮 Polícia Civil
+</div>
+
+<div class="item">
+🕵️ Polícia Federal
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+
+<section id="taf" class="hidden">
+
+<div class="card">
+
+<h2>🏃 TAF</h2>
+
+<div class="item">
+🏃 Corrida
+</div>
+
+<div class="item">
+💪 Flexão
+</div>
+
+<div class="item">
+🤸 Abdominal
+</div>
+
+</div>
+
+</section>
+
+
+
+</div>
+
+
+
+<footer>
+
+🚔 PM Academy  
+<br>
+Criado para Letícia Lorena 💙
+
+</footer>
+
+
+
+
 <script>
 
-let questaoAtual = 0;
-let materiaAtual = "portugues";
-let selecionada = "";
+function abrir(id){
 
-function iniciarQuestoes(materia){
+document.querySelectorAll("section")
+.forEach(x=>x.classList.add("hidden"));
 
-materiaAtual = materia;
-questaoAtual = 0;
-
-abrir("simulado");
-
-mostrarQuestao();
-
-}
-
-
-function mostrarQuestao(){
-
-let q = bancoQuestoes[materiaAtual][questaoAtual];
-
-
-document.getElementById("materiaTitulo").innerHTML =
-"📚 "+materiaAtual.toUpperCase();
-
-
-document.getElementById("numeroQuestao").innerHTML =
-"Questão "+(questaoAtual+1);
-
-
-document.getElementById("pergunta").innerHTML =
-q.pergunta;
-
-
-let botoes="";
-
-
-q.alternativas.forEach((a)=>{
-
-botoes += `
-<button onclick="selecionar('${a.charAt(0)}')">
-${a}
-</button>
-`;
-
-});
-
-
-document.getElementById("alternativas").innerHTML=botoes;
-
-document.getElementById("resultado").innerHTML="";
-
-document.getElementById("explicacao").innerHTML="";
+document.getElementById(id)
+.classList.remove("hidden");
 
 }
 
 
 
-function selecionar(letra){
+function materia(nome){
 
-selecionada = letra;
+abrir("materia");
 
-}
-
-
-
-function responderQuestao(){
-
-let q = bancoQuestoes[materiaAtual][questaoAtual];
-
-
-if(selecionada == q.resposta){
-
-document.getElementById("resultado").innerHTML =
-"✅ Correto!";
-
-}else{
-
-document.getElementById("resultado").innerHTML =
-"❌ Errado!";
-
-}
-
-
-document.getElementById("explicacao").innerHTML =
-q.explicacao;
-
-
-questaoAtual++;
-
-
-if(questaoAtual < bancoQuestoes[materiaAtual].length){
-
-setTimeout(mostrarQuestao,2000);
-
-}
+document.getElementById("nomeMateria").innerHTML=
+"📚 "+nome;
 
 }
 
 </script>
+
+
+
+</body>
+
+</html>

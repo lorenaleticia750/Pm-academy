@@ -8,18 +8,17 @@
 <title>PM Academy - Letícia Lorena</title>
 
 <style>
-
 body{
+font-family:Arial,sans-serif;
 margin:0;
-font-family:Arial;
 background:#eef2f7;
 }
 
 header{
 background:#061a40;
 color:white;
-padding:25px;
 text-align:center;
+padding:20px;
 }
 
 nav{
@@ -34,7 +33,7 @@ button{
 background:#061a40;
 color:white;
 border:0;
-padding:12px;
+padding:10px;
 margin:5px;
 border-radius:10px;
 cursor:pointer;
@@ -48,40 +47,38 @@ padding:20px;
 background:white;
 padding:20px;
 border-radius:15px;
-margin:15px 0;
-box-shadow:0 3px 10px #ccc;
+margin-bottom:20px;
 }
 
-.materia{
-background:white;
+.item{
+background:#f4f4f4;
 padding:15px;
 margin:10px 0;
-border-radius:15px;
-border-left:5px solid #d4af37;
+border-radius:10px;
 }
 
 .hidden{
 display:none;
 }
 
-.item{
-background:#f5f5f5;
+input,textarea{
+width:90%;
 padding:10px;
-margin:10px;
-border-radius:10px;
+margin:5px;
+border-radius:8px;
+border:1px solid #ccc;
 }
 
 footer{
 background:#061a40;
 color:white;
 text-align:center;
-padding:20px;
+padding:15px;
 }
 
 </style>
 
 </head>
-
 
 <body>
 
@@ -92,7 +89,7 @@ padding:20px;
 
 <h2>Olá, Letícia Lorena 👋</h2>
 
-<p>Preparação Concurso PMBA</p>
+<p>Preparação para Concursos Policiais</p>
 
 </header>
 
@@ -116,7 +113,6 @@ padding:20px;
 
 
 
-
 <div class="container">
 
 
@@ -128,25 +124,15 @@ padding:20px;
 
 <h3>👮 Letícia Lorena</h3>
 
-<div class="item">
-📝 Questões feitas: 0
-</div>
+<div class="item">📝 Questões feitas: 0</div>
 
-<div class="item">
-✅ Acertos: 0
-</div>
+<div class="item">✅ Acertos: 0</div>
 
-<div class="item">
-❌ Erros: 0
-</div>
+<div class="item">❌ Erros: 0</div>
 
-<div class="item">
-🎖️ Patente: Recruta
-</div>
+<div class="item">🎖️ Patente: Recruta</div>
 
-<div class="item">
-📈 Progresso: 0%
-</div>
+<div class="item">📈 Progresso: 0%</div>
 
 </div>
 
@@ -158,86 +144,13 @@ padding:20px;
 
 <section id="materias" class="hidden">
 
+<div class="card">
+
 <h2>📚 Matérias PMBA</h2>
 
+<div id="listaMaterias"></div>
 
-<div class="materia">
-📖 Português
-<button onclick="materia('Português')">Abrir</button>
 </div>
-
-
-<div class="materia">
-🧮 Raciocínio Lógico | Matemática
-<button onclick="materia('Matemática')">Abrir</button>
-</div>
-
-
-<div class="materia">
-💻 Informática
-<button onclick="materia('Informática')">Abrir</button>
-</div>
-
-
-<div class="materia">
-⚖️ Direito Administrativo
-<button onclick="materia('Direito Administrativo')">Abrir</button>
-</div>
-
-
-<div class="materia">
-⚖️ Direito Constitucional
-<button onclick="materia('Direito Constitucional')">Abrir</button>
-</div>
-
-
-<div class="materia">
-🚔 Direito Penal
-<button onclick="materia('Direito Penal')">Abrir</button>
-</div>
-
-
-<div class="materia">
-⚖️ Processo Penal
-<button onclick="materia('Processo Penal')">Abrir</button>
-</div>
-
-
-<div class="materia">
-🌎 Direitos Humanos
-<button onclick="materia('Direitos Humanos')">Abrir</button>
-</div>
-
-
-<div class="materia">
-🪖 Direito Penal Militar
-<button onclick="materia('Penal Militar')">Abrir</button>
-</div>
-
-
-<div class="materia">
-📜 Estatuto PMBA
-<button onclick="materia('Estatuto PMBA')">Abrir</button>
-</div>
-
-
-<div class="materia">
-🌎 Geografia do Brasil
-<button onclick="materia('Geografia')">Abrir</button>
-</div>
-
-
-<div class="materia">
-📚 História do Brasil
-<button onclick="materia('História')">Abrir</button>
-</div>
-
-
-<div class="materia">
-📝 Redação
-<button onclick="materia('Redação')">Abrir</button>
-</div>
-
 
 </section>
 
@@ -245,18 +158,18 @@ padding:20px;
 
 
 
-
-<section id="materia" class="hidden">
+<section id="estudo" class="hidden">
 
 <div class="card">
 
-<h2 id="nomeMateria"></h2>
+<h2 id="tituloMateria"></h2>
 
 
 <div class="item">
+
 📄 PDFs
 
-<br><br>
+<br>
 
 <input placeholder="Cole o link do PDF">
 
@@ -267,7 +180,7 @@ padding:20px;
 
 🎥 Vídeos
 
-<br><br>
+<br>
 
 <input placeholder="Cole o link do vídeo">
 
@@ -278,9 +191,9 @@ padding:20px;
 
 📝 Resumos
 
-<br><br>
+<br>
 
-<textarea placeholder="Digite seus resumos"></textarea>
+<textarea placeholder="Digite seu resumo"></textarea>
 
 </div>
 
@@ -289,9 +202,9 @@ padding:20px;
 
 🧠 Flashcards
 
-<br><br>
+<br>
 
-<textarea placeholder="Crie seus flashcards"></textarea>
+<textarea placeholder="Digite seus flashcards"></textarea>
 
 </div>
 
@@ -302,22 +215,17 @@ padding:20px;
 
 <br>
 
-<button>
-Iniciar Simulado
-</button>
+<button>Iniciar Simulado</button>
 
 </div>
 
 
-<button onclick="abrir('materias')">
-⬅ Voltar
-</button>
+<button onclick="abrir('materias')">⬅ Voltar</button>
 
 
 </div>
 
 </section>
-
 
 
 
@@ -327,18 +235,13 @@ Iniciar Simulado
 
 <div class="card">
 
-<h2>📝 Banco de Questões</h2>
+<h2>📝 Questões</h2>
 
-<p>Questões separadas por matéria.</p>
-
-<button>
-Iniciar Simulado
-</button>
+<p>Banco de questões por matéria.</p>
 
 </div>
 
 </section>
-
 
 
 
@@ -350,22 +253,15 @@ Iniciar Simulado
 
 <h2>📑 Editais</h2>
 
-<div class="item">
-🚔 PM Bahia
-</div>
+<div class="item">🚔 PMBA - Edital e conteúdo programático</div>
 
-<div class="item">
-👮 Polícia Civil
-</div>
+<div class="item">👮 Polícia Civil - Editais anteriores</div>
 
-<div class="item">
-🕵️ Polícia Federal Escrivão
-</div>
+<div class="item">🕵️ Polícia Federal Escrivão - Editais anteriores</div>
 
 </div>
 
 </section>
-
 
 
 
@@ -377,17 +273,11 @@ Iniciar Simulado
 
 <h2>📄 Provas Anteriores</h2>
 
-<div class="item">
-🚔 Provas PMBA + Gabaritos
-</div>
+<div class="item">🚔 PM Bahia - Provas e gabaritos</div>
 
-<div class="item">
-👮 Polícia Civil
-</div>
+<div class="item">👮 Polícia Civil - Provas</div>
 
-<div class="item">
-🕵️ Polícia Federal
-</div>
+<div class="item">🕵️ Polícia Federal - Provas</div>
 
 </div>
 
@@ -397,23 +287,34 @@ Iniciar Simulado
 
 
 
-
 <section id="taf" class="hidden">
 
 <div class="card">
 
-<h2>🏃 TAF</h2>
+<h2>🏃 TAF - Letícia Lorena</h2>
 
 <div class="item">
-🏃 Corrida
+🏃 Corrida:
+<input placeholder="metros">
 </div>
 
 <div class="item">
-💪 Flexão
+💪 Flexão:
+<input placeholder="quantidade">
 </div>
 
 <div class="item">
-🤸 Abdominal
+🤸 Abdominal:
+<input placeholder="quantidade">
+</div>
+
+<div class="item">
+🏋️ Barra:
+<input placeholder="quantidade">
+</div>
+
+<div class="item">
+📈 Evolução: 0%
 </div>
 
 </div>
@@ -428,21 +329,64 @@ Iniciar Simulado
 
 <footer>
 
-🚔 PM Academy  
-<br>
-Criado para Letícia Lorena 💙
+🚔 PM Academy<br>
+Letícia Lorena
 
 </footer>
 
 
 
-
 <script>
+
+let materias=[
+
+"📖 Português",
+"🧮 Raciocínio Lógico | Matemática",
+"💻 Informática",
+"⚖️ Direito Administrativo",
+"⚖️ Direito Constitucional",
+"🤝 Igualdade Racial e Gênero",
+"🚔 Direito Penal",
+"⚖️ Processo Penal",
+"🌎 Direitos Humanos",
+"🪖 Direito Penal Militar",
+"📜 Estatuto PMBA",
+"🌎 Geografia do Brasil",
+"📚 História do Brasil",
+"📝 Redação"
+
+];
+
+
+let lista=document.getElementById("listaMaterias");
+
+
+materias.forEach(m=>{
+
+lista.innerHTML +=
+
+`
+<div class="item">
+
+${m}
+
+<br>
+
+<button onclick="abrirMateria('${m}')">
+Abrir matéria
+</button>
+
+</div>
+`;
+
+});
+
+
 
 function abrir(id){
 
 document.querySelectorAll("section")
-.forEach(x=>x.classList.add("hidden"));
+.forEach(s=>s.classList.add("hidden"));
 
 document.getElementById(id)
 .classList.remove("hidden");
@@ -451,17 +395,17 @@ document.getElementById(id)
 
 
 
-function materia(nome){
+function abrirMateria(nome){
 
-abrir("materia");
+abrir("estudo");
 
-document.getElementById("nomeMateria").innerHTML=
-"📚 "+nome;
+document.getElementById("tituloMateria")
+.innerHTML=nome;
 
 }
 
-</script>
 
+</script>
 
 
 </body>

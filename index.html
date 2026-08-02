@@ -1,413 +1,102 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PM Academy - Letícia Lorena</title>
+<title>PM Academy</title>
 
-<style>
-body{
-font-family:Arial,sans-serif;
-margin:0;
-background:#eef2f7;
-}
-
-header{
-background:#061a40;
-color:white;
-text-align:center;
-padding:20px;
-}
-
-nav{
-background:#d4af37;
-padding:10px;
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-}
-
-button{
-background:#061a40;
-color:white;
-border:0;
-padding:10px;
-margin:5px;
-border-radius:10px;
-cursor:pointer;
-}
-
-.container{
-padding:20px;
-}
-
-.card{
-background:white;
-padding:20px;
-border-radius:15px;
-margin-bottom:20px;
-}
-
-.item{
-background:#f4f4f4;
-padding:15px;
-margin:10px 0;
-border-radius:10px;
-}
-
-.hidden{
-display:none;
-}
-
-input,textarea{
-width:90%;
-padding:10px;
-margin:5px;
-border-radius:8px;
-border:1px solid #ccc;
-}
-
-footer{
-background:#061a40;
-color:white;
-text-align:center;
-padding:15px;
-}
-
-</style>
-
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-
 <header>
+    <h1>🚔 PM ACADEMY</h1>
+    <p>Preparação Concurso PMBA</p>
+</header>
 
-<h1>🚔 PM ACADEMY</h1>
+
+<section class="perfil">
 
 <h2>Olá, Letícia Lorena 👋</h2>
 
-<p>Preparação para Concursos Policiais</p>
+<p>Patente: <b>Recruta</b></p>
 
-</header>
+</section>
+
+
+<section class="painel">
+
+<div>
+<h3>📚</h3>
+<p>Questões feitas</p>
+<span>0</span>
+</div>
+
+
+<div>
+<h3>✅</h3>
+<p>Acertos</p>
+<span>0</span>
+</div>
+
+
+<div>
+<h3>❌</h3>
+<p>Erros</p>
+<span>0</span>
+</div>
+
+
+<div>
+<h3>🏆</h3>
+<p>Progresso</p>
+<span>0%</span>
+</div>
+
+</section>
 
 
 
 <nav>
 
-<button onclick="abrir('painel')">🏠 Painel</button>
+<a href="materias.html">📚 Matérias</a>
 
-<button onclick="abrir('materias')">📚 Matérias</button>
+<a href="questoes.html">🎯 Questões</a>
 
-<button onclick="abrir('questoes')">📝 Questões</button>
+<a href="quiz.html">🧠 Quiz</a>
 
-<button onclick="abrir('editais')">📑 Editais</button>
+<a href="flashcards.html">📖 Flashcards</a>
 
-<button onclick="abrir('provas')">📄 Provas</button>
+<a href="desempenho.html">📊 Desempenho</a>
 
-<button onclick="abrir('taf')">🏃 TAF</button>
+<a href="evolucao.html">🏆 Evolução</a>
+
+<a href="edital.html">📄 Edital</a>
+
+<a href="provas.html">📝 Provas</a>
+
+<a href="taf.html">💪 TAF</a>
+
+<a href="pdfs.html">📂 PDFs</a>
+
+<a href="videos.html">🎬 Vídeos</a>
+
+<a href="cronograma.html">📅 Cronograma</a>
 
 </nav>
 
 
 
-<div class="container">
-
-
-<section id="painel">
-
-<div class="card">
-
-<h2>📊 Meu Painel</h2>
-
-<h3>👮 Letícia Lorena</h3>
-
-<div class="item">📝 Questões feitas: 0</div>
-
-<div class="item">✅ Acertos: 0</div>
-
-<div class="item">❌ Erros: 0</div>
-
-<div class="item">🎖️ Patente: Recruta</div>
-
-<div class="item">📈 Progresso: 0%</div>
-
-</div>
-
-</section>
-
-
-
-
-
-<section id="materias" class="hidden">
-
-<div class="card">
-
-<h2>📚 Matérias PMBA</h2>
-
-<div id="listaMaterias"></div>
-
-</div>
-
-</section>
-
-
-
-
-
-<section id="estudo" class="hidden">
-
-<div class="card">
-
-<h2 id="tituloMateria"></h2>
-
-
-<div class="item">
-
-📄 PDFs
-
-<br>
-
-<input placeholder="Cole o link do PDF">
-
-</div>
-
-
-<div class="item">
-
-🎥 Vídeos
-
-<br>
-
-<input placeholder="Cole o link do vídeo">
-
-</div>
-
-
-<div class="item">
-
-📝 Resumos
-
-<br>
-
-<textarea placeholder="Digite seu resumo"></textarea>
-
-</div>
-
-
-<div class="item">
-
-🧠 Flashcards
-
-<br>
-
-<textarea placeholder="Digite seus flashcards"></textarea>
-
-</div>
-
-
-<div class="item">
-
-❓ Questões
-
-<br>
-
-<button>Iniciar Simulado</button>
-
-</div>
-
-
-<button onclick="abrir('materias')">⬅ Voltar</button>
-
-
-</div>
-
-</section>
-
-
-
-
-
-<section id="questoes" class="hidden">
-
-<div class="card">
-
-<h2>📝 Questões</h2>
-
-<p>Banco de questões por matéria.</p>
-
-</div>
-
-</section>
-
-
-
-
-
-<section id="editais" class="hidden">
-
-<div class="card">
-
-<h2>📑 Editais</h2>
-
-<div class="item">🚔 PMBA - Edital e conteúdo programático</div>
-
-<div class="item">👮 Polícia Civil - Editais anteriores</div>
-
-<div class="item">🕵️ Polícia Federal Escrivão - Editais anteriores</div>
-
-</div>
-
-</section>
-
-
-
-
-
-<section id="provas" class="hidden">
-
-<div class="card">
-
-<h2>📄 Provas Anteriores</h2>
-
-<div class="item">🚔 PM Bahia - Provas e gabaritos</div>
-
-<div class="item">👮 Polícia Civil - Provas</div>
-
-<div class="item">🕵️ Polícia Federal - Provas</div>
-
-</div>
-
-</section>
-
-
-
-
-
-<section id="taf" class="hidden">
-
-<div class="card">
-
-<h2>🏃 TAF - Letícia Lorena</h2>
-
-<div class="item">
-🏃 Corrida:
-<input placeholder="metros">
-</div>
-
-<div class="item">
-💪 Flexão:
-<input placeholder="quantidade">
-</div>
-
-<div class="item">
-🤸 Abdominal:
-<input placeholder="quantidade">
-</div>
-
-<div class="item">
-🏋️ Barra:
-<input placeholder="quantidade">
-</div>
-
-<div class="item">
-📈 Evolução: 0%
-</div>
-
-</div>
-
-</section>
-
-
-
-</div>
-
-
-
 <footer>
 
-🚔 PM Academy<br>
-Letícia Lorena
+<p>PM Academy © 2026</p>
+
+<p>Letícia Lorena</p>
 
 </footer>
 
 
-
-<script>
-
-let materias=[
-
-"📖 Português",
-"🧮 Raciocínio Lógico | Matemática",
-"💻 Informática",
-"⚖️ Direito Administrativo",
-"⚖️ Direito Constitucional",
-"🤝 Igualdade Racial e Gênero",
-"🚔 Direito Penal",
-"⚖️ Processo Penal",
-"🌎 Direitos Humanos",
-"🪖 Direito Penal Militar",
-"📜 Estatuto PMBA",
-"🌎 Geografia do Brasil",
-"📚 História do Brasil",
-"📝 Redação"
-
-];
-
-
-let lista=document.getElementById("listaMaterias");
-
-
-materias.forEach(m=>{
-
-lista.innerHTML +=
-
-`
-<div class="item">
-
-${m}
-
-<br>
-
-<button onclick="abrirMateria('${m}')">
-Abrir matéria
-</button>
-
-</div>
-`;
-
-});
-
-
-
-function abrir(id){
-
-document.querySelectorAll("section")
-.forEach(s=>s.classList.add("hidden"));
-
-document.getElementById(id)
-.classList.remove("hidden");
-
-}
-
-
-
-function abrirMateria(nome){
-
-abrir("estudo");
-
-document.getElementById("tituloMateria")
-.innerHTML=nome;
-
-}
-
-
-</script>
-
-
 </body>
-
 </html>
